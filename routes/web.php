@@ -21,6 +21,8 @@ use App\Http\Controllers\bindingController;
 use App\Http\Controllers\inlineBladeController;
 use App\Http\Controllers\serviceLayerController;
 use App\Http\Controllers\ApiResourcejsonController;
+use App\Http\Controllers\Api\V1\StudentController as V1StudentController;
+use App\Http\Controllers\Api\v2\StudentController as V2StudentController;
 
 Route::get('/', function (){
     return view('welcome');
@@ -402,6 +404,41 @@ Route::get('serviceLayer2', [serviceLayerController::class, 'serviceLayer2']);
 Route::get('ApiResourceJson', [ApiResourcejsonController::class, 'json']);
 
 // Api Resource Json ------------- End
+
+
+
+// Api Versioning ------------------------------ Start
+
+// Acha Ab ye Api Versioning kya hoti he 
+// Ab dekho hamne starting me website banai thk hena ab hamhe iusme kuch update krna he
+// To ab purana wale me change nhi krenge q ke kuch user update nhi krte hen to 
+// isliye purane wale me se change nhi karenge to ab kya krte  he 
+// New Controller banate hen purane wale ko rehne dete hen new bana 
+// Ius jo change krna hota he wo krdete hen ham phr hamhe front-end se Api
+// Change krni hoti he jese pehle thi localhost/V1/students ab krdenge 
+// localhost/V2/students   ab ham route me bhi change krdenge prefix me V2 ke baad
+// Students hoto new wala controller call karo purana wala jaab he call hoga jiske pass
+// Purani website hogi jo update nhi karega mltb purana kuch change nhi hota he 
+// Update krte howe new bnta ab koi aesa user aya jiske pass website update nhi he
+// To ye api hogi localhost/V1/students  to route ye hit hoga 
+//  Route::prefix('v1')->group(function (){
+//     Route::get('/students', [V1StudentController::class, 'V1']);
+// });
+// Or koi aesa user ayega jiske pass latest version hoga to ye api hogi 
+// localhost/V1/students or ye route hit hoga 
+// Route::prefix('v2')->group(function (){
+//     Route::get('/students', [V2StudentController::class, 'V2']);
+// });
+
+Route::prefix('v1')->group(function (){
+    Route::get('/students', [V1StudentController::class, 'V1']);
+});
+
+Route::prefix('v2')->group(function (){
+    Route::get('/students', [V2StudentController::class, 'V2']);
+});
+
+// Api Versioning ------------------------------ End
 
 
 
