@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\products;
 class sellers extends Model
 {
 
@@ -18,7 +18,7 @@ class sellers extends Model
 // Acha Ye one to Many relationship ka code he --------------------- Star
 
     function productsMany(){
-        return $this->hasMany('App\Models\products', 'seller_id');
+        return $this->hasMany(products::class, 'Seller_id');
     }
 // Acha Ye one to Many relationship ka code he --------------------- End
 }

@@ -27,8 +27,16 @@ class relationshipsController extends Controller
     // Or relationships me data ius he table ka ata he jo hasone ya hasmany ke ander
     // Ho bss 
 
+    // Acha yejo with hena ye he Eager loading ab kya hota he hamne relation banya 
+    // Hamhe chaiye saree seller or iunki products to agar ham eager loading use nhi krte
+    // To pehle seller ate phr har seller ki products lane ke liye alag query chlti
+    // mltb saab seller 1 query me agaye leken har seller ki product ki row hen 100
+    // to without eager loading 101 row chalengi or agar  with use krenge to 
+    // Sari row aik query me ayengi aese [1,2,3,4,5]  mtlb eager loading system
+    // Ko fast krne ke lye hota he 
+
     function onetomany(){
-        return sellers::find(1)->productsMany;
+        return sellers::with('productsMany')->get();
     }
 
     // Ye one to Many Relationship Ka code he ------------------ End
