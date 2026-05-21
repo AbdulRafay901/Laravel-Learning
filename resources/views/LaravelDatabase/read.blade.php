@@ -18,7 +18,7 @@
 
     </form>
 
-    {{$data->links()}}
+        
 
 </div>
 

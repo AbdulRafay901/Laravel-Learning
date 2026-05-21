@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\insert;
+use Illuminate\Support\Facades\Cache;
 
 class insertController extends Controller
 {
@@ -14,6 +15,7 @@ class insertController extends Controller
         $table->Number=$request->number;
         $table->save();
         if($table){
+          Cache::forget('sellers');
           return  redirect('userInsert');
         }else{
             return "Failed";
@@ -25,6 +27,7 @@ class insertController extends Controller
       $delete->delete();
         
       if($delete){
+        Cache::forget('sellers');
         return redirect('readData');
       }else{
         return "delete nhi howa he";
@@ -48,6 +51,8 @@ class insertController extends Controller
          $update->Email = $request->email;
          $update->Number = $request->number;
          $update->save();
+
+         Cache::forget('sellers');
          return redirect('readData');
 
     }
