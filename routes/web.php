@@ -445,9 +445,16 @@ Route::prefix('v2')->group(function (){
 
 // Redis Learning -------------------------- Start
 
+// Acha Ab ye throttle:5,1 kya hota he Request handle krta he 
+// Mltb isko kehte hen Rate Limiting mltb 1 mint  me bss 5 request askhti hen
+// is route 5 se zaiyda request ke baad error ajyega 
+// 429 Too Many Requests  
 
+Route::middleware('throttle:5,1')->group(function(){
 
 Route::get('Redis', [RedisController::class, 'Redis']);
+
+});
 // Redis Learning -------------------------- End
 
 
