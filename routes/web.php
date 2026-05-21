@@ -23,6 +23,7 @@ use App\Http\Controllers\serviceLayerController;
 use App\Http\Controllers\ApiResourcejsonController;
 use App\Http\Controllers\Api\V1\StudentController as V1StudentController;
 use App\Http\Controllers\Api\v2\StudentController as V2StudentController;
+use App\Http\Controllers\RedisController;
 
 Route::get('/', function (){
     return view('welcome');
@@ -439,6 +440,15 @@ Route::prefix('v2')->group(function (){
 });
 
 // Api Versioning ------------------------------ End
+
+
+
+// Redis Learning -------------------------- Start
+
+
+
+Route::get('Redis', [RedisController::class, 'Redis']);
+// Redis Learning -------------------------- End
 
 
 
