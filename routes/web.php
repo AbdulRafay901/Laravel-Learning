@@ -24,7 +24,7 @@ use App\Http\Controllers\ApiResourcejsonController;
 use App\Http\Controllers\Api\V1\StudentController as V1StudentController;
 use App\Http\Controllers\Api\v2\StudentController as V2StudentController;
 use App\Http\Controllers\RedisController;
-use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\TransactionwController;
 
 Route::get('/', function (){
     return view('welcome');
