@@ -4,8 +4,14 @@ namespace App\Services;
 
 class DependencyClass
 {
-    public function check()
+    public function dependency()
     {
-        return "Check Funtion Working";
+        return "Dependency Funtion Working";
     }
+
+    public function ServiceContainer($name)
+    {
+        return "This is " . $name;
+    }
+
 }

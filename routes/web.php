@@ -469,5 +469,18 @@ Route::get('Transaction', [TransactionController::class, 'Transaction']);
 
 // Service Container --- LOC --- Service Provider ------------------ Start
 
-Route::get('/ServiceContainer-Loc-ServiceProvider', [ServiceANDProvider::class, 'chalo']);
+// Dependency Method ----------------- Start
+
+Route::get('/Dependency', [ServiceANDProvider::class, 'chalo']);
+
+// Dependency Method ----------------- End
+
+
+// Service Container --------------------- Start
+
+Route::get('/ServiceContainer', [ServiceANDProvider::class, 'ServiceContainer']);
+
+// Service Container --------------------- End
+
+
 // Service Container --- LOC --- Service Provider ------------------ End
